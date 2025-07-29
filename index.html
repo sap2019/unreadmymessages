@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnreadMyMessage.com | Create Realistic Fake Chat Screenshots for Fun</title>
+    <meta name="description"
+        content="Generate realistic fake chat screenshots for WhatsApp, Messenger, Instagram, iMessage, TikTok, and Threads. Customize names, profile pictures, messages, timestamps, and statuses for entertainment and personal use.">
+    <meta name="keywords"
+        content="fake chat generator, chat screenshot, WhatsApp fake chat, Messenger fake chat, Instagram fake chat, iMessage fake chat, TikTok fake chat, Threads fake chat, chat maker, message generator, unread message, social media chat, conversation generator">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="platform-selector">
+            <div class="platform-tab whatsapp active" data-platform="whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </div>
+            <div class="platform-tab messenger" data-platform="messenger">
+                <i class="fab fa-facebook-messenger"></i> Messenger
+            </div>
+            <div class="platform-tab instagram" data-platform="instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </div>
+            <div class="platform-tab imessage" data-platform="imessage">
+                <i class="fas fa-comment"></i> iMessage
+            </div>
+            <div class="platform-tab tiktok" data-platform="tiktok">
+                <i class="fab fa-tiktok"></i> TikTok
+            </div>
+            <div class="platform-tab threads" data-platform="threads">
+                <i class="fab fa-threads"></i> Threads
+            </div>
+        </div>
+
+        <div class="chat-header">
+            <div class="chat-header-left">
+                <img id="profile-pic" src="https://i.pravatar.cc/150?img=3" alt="Profile">
+                <div class="chat-header-info">
+                    <h2 id="contact-name">Vicky</h2>
+                    <p id="username">vicky199289</p>
+                </div>
+            </div>
+            <div class="chat-header-actions" id="chat-header-actions">
+            </div>
+        </div>
+
+        <div class="chat-body whatsapp" id="chat-body">
+        </div>
+
+        <div class="instagram-reply-options" id="instagram-reply-options">
+            <div class="instagram-reply-menu">
+                <div class="instagram-reply-menu-item"><i class="fas fa-reply"></i> Reply</div>
+                <div class="instagram-reply-menu-item"><i class="fas fa-share"></i> Forward</div>
+                <div class="instagram-reply-menu-item"><i class="fas fa-copy"></i> Copy</div>
+                <div class="instagram-reply-menu-item"><i class="fas fa-language"></i> Translate</div>
+                <div class="instagram-reply-menu-item"><i class="fas fa-flag"></i> Report</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="controls-column">
+        <div class="form-group">
+            <label for="contact-name-input">Contact Name</label>
+            <input type="text" id="contact-name-input" value="Vicky">
+        </div>
+
+        <div class="form-group">
+            <label for="username-input">Username</label>
+            <input type="text" id="username-input" value="vicky199289">
+        </div>
+
+        <div class="form-group">
+            <label for="contact-status-select">Contact Status</label>
+            <select id="contact-status-select">
+                <option value="online">Online</option>
+                <option value="typing">Typing...</option>
+                <option value="lastseen">Last Seen</option>
+                <option value="custom">Custom Text</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="last-seen-date-group" style="display: none;">
+            <label for="last-seen-date">Last Seen Date</label>
+            <input type="date" id="last-seen-date">
+        </div>
+
+        <div class="form-group" id="last-seen-time-group" style="display: none;">
+            <label for="last-seen-time">Last Seen Time</label>
+            <input type="time" id="last-seen-time">
+        </div>
+
+        <div class="form-group" id="custom-status-text-group" style="display: none;">
+            <label for="custom-status-text">Custom Status Text</label>
+            <input type="text" id="custom-status-text" placeholder="e.g., At work, Away">
+        </div>
+
+        <div class="form-group">
+            <label for="profile-pic-upload">Profile Picture</label>
+            <input type="file" id="profile-pic-upload" accept="image/*">
+        </div>
+
+        <div class="form-group">
+            <label for="message-text">Message Content (Prefix with [S] for Sent, [R] for Received)</label>
+            <textarea id="message-text" placeholder="Type messages here. Each line is a new message.
+[S] for Sent (you), [R] for Received (contact).
+Example:
+[R]Hello
+[S]Hi there!
+[R]How are you?">[R]Hi! How are you?
+[S]I am fine. How about you?
+[R] Doing well. Long time no see
+[S]Let's catch up soon
+[R]Okay
+[R]When and Where????
+[S]I am in Bangalore
+[R]Indiranagar??
+[S]Posh area
+[R]Yes
+[S]U like it?
+[R]I hardly went there 2-3 times
+[S]</textarea>
+        </div>
+
+        <div class="emoji-picker" id="emoji-picker">
+        </div>
+
+        <div class="form-group">
+            <label for="message-status">Message Delivery Status</label>
+            <select id="message-status">
+                <option value="delivered">Delivered</option>
+                <option value="read">Read</option>
+                <option value="typing">Typing indicator</option>
+            </select>
+        </div>
+
+        <button class="generate-btn" id="generate-btn">
+            <i class="fas fa-magic"></i> Generate Chat
+        </button>
+
+        <div class="share-buttons">
+            <button class="share-btn" id="download-btn">
+                <i class="fas fa-download"></i> Download
+            </button>
+            <button class="share-btn" id="share-facebook">
+                <i class="fab fa-facebook"></i> Share on Facebook
+            </button>
+            <button class="share-btn" id="share-twitter">
+                <i class="fab fa-twitter"></i> Share on X
+            </button>
+            <button class="share-btn" id="share-linkedin">
+                <i class="fab fa-linkedin"></i> Share on LinkedIn
+            </button>
+            <button class="share-btn" id="share-instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </button>
+            <button class="share-btn" id="copy-link">
+                <i class="fas fa-link"></i> Copy Link
+            </button>
+        </div>
+    </div>
+
+    <div class="website-description">
+        <h3>About UnreadMyMessage.com</h3>
+        <p>UnreadMyMessage.com is a fun and easy-to-use tool that lets you create realistic-looking chat conversations
+            from popular messaging apps like WhatsApp, Messenger, Instagram, iMessage, TikTok, and Threads. Whether you
+            want to tell a story, make a meme, or just have some fun with friends, you can customize names, profile
+            pictures, messages, timestamps, and even the "last seen" status to generate your perfect chat screen!</p>
+    </div>
+
+    <div class="disclaimer">
+        Disclaimer: This tool is for entertainment and personal use only to create simulated chat conversations. It is
+        not affiliated with, endorsed by, or directly connected to WhatsApp, Messenger, Instagram, iMessage, TikTok,
+        Threads, or any other platform. Do not use this tool for impersonation, fraud, or any malicious or misleading
+        purposes. The developers are not responsible for any misuse.
+    </div>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
